@@ -16,7 +16,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<app.runtime>4.10.1</app.runtime>
+		<!-- ✅ Use stable runtime -->
+		<app.runtime>4.9.0</app.runtime>
+
 		<mule.maven.plugin.version>4.6.1</mule.maven.plugin.version>
 	</properties>
 
@@ -30,7 +32,7 @@
 				<version>3.2.0</version>
 			</plugin>
 
-			<!-- Mule Maven Plugin (UPDATED WITH DEPLOYMENT CONFIG) -->
+			<!-- Mule Maven Plugin -->
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
@@ -41,16 +43,20 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 
-						<!-- Runtime -->
+						<!-- ✅ Runtime -->
 						<muleVersion>${app.runtime}</muleVersion>
 
-						<!-- Credentials from GitHub Actions -->
+						<!-- ✅ Credentials (from GitHub Actions) -->
 						<username>${anypoint.username}</username>
 						<password>${anypoint.password}</password>
 
-						<!-- App Details -->
-						<applicationName>github-actions-app</applicationName>
+						<!-- ✅ MUST be unique -->
+						<applicationName>github-actions-app-001</applicationName>
+
+						<!-- ✅ Environment -->
 						<environment>Sandbox</environment>
+
+						<!-- ✅ Region (EU) -->
 						<region>eu1</region>
 
 						<!-- Worker Config -->
