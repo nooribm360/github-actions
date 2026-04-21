@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 
-          http://maven.apache.org/xsd/settings-1.0.0.xsd">
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
-    <servers>
-
-        <!-- Anypoint Exchange v3 (MANDATORY for CI/CD) -->
-        <settings>
     <servers>
         <server>
             <id>anypoint-exchange-v3</id>
             <username>~~~Client~~~</username>
             <password>${env.ANYPOINT_CLIENT_ID}~?~${env.ANYPOINT_CLIENT_SECRET}</password>
         </server>
-   
-
     </servers>
 
 </settings>

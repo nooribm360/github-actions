@@ -31,9 +31,6 @@ jobs:
         java-version: '8'
         
     - name: Configure Maven settings.xml
-      env:
-        ANYPOINT_CLIENT_ID: ${{ secrets.ANYPOINT_CLIENT_ID }}
-        ANYPOINT_CLIENT_SECRET: ${{ secrets.ANYPOINT_CLIENT_SECRET }}
       run: |
         mkdir -p ~/.m2
         cat <<EOF > ~/.m2/settings.xml
@@ -47,6 +44,9 @@ jobs:
           </servers>
         </settings>
         EOF
+      env:
+        ANYPOINT_CLIENT_ID: ${{ secrets.ANYPOINT_CLIENT_ID }}
+        ANYPOINT_CLIENT_SECRET: ${{ secrets.ANYPOINT_CLIENT_SECRET }}
 
     - name: Deploy to Sandbox
       run: |
