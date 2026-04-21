@@ -45,9 +45,9 @@ jobs:
         </settings>
         EOF
 
-    - name: Deploy to CloudHub 2.0
+    - name: Deploy to Sandbox
       run: |
         # 1. Publish to Exchange
-        mvn clean deploy -DskipTests
+        mvn clean deploy -DskipTests --settings ~/.m2/settings.xml
         # 2. Deploy to CloudHub 2.0
-        mvn mule:deploy -DskipTests
+        mvn mule:deploy -DskipTests --settings ~/.m2/settings.xml
