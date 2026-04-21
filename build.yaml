@@ -39,7 +39,8 @@ jobs:
             <server>
               <id>anypoint-exchange-v3</id>
               <username>~~~Client~~~</username>
-              <password>67761f108e1747eea42fba977d6ddb28~?~865B31D6A52C4d048EaC36D937b40D7b</password>
+              # Use simple, standardized secret names
+              <password>${{ secrets.ANYPOINT_CLIENT_ID }}~?~${{ secrets.ANYPOINT_CLIENT_SECRET }}</password>
             </server>
           </servers>
         </settings>
