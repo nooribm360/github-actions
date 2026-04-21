@@ -57,7 +57,7 @@
 			<environment>Sandbox</environment>
 
 			<!-- CH2 Specific -->
-			<target>Cloudhub-US-East-1</target>  
+			<target>Cloudhub-US-East-2</target>  
 			<replicas>1</replicas>
 			<vCores>0.1</vCores>
 
