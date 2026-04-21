@@ -87,6 +87,14 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
+	
+	<distributionManagement>
+    <repository>
+        <id>anypoint-exchange-v3</id>
+        <name>Anypoint Exchange</name>
+        <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+    </repository>
+</distributionManagement>
 
 	<repositories>
 		<repository>
