@@ -39,14 +39,14 @@ jobs:
             <server>
               <id>anypoint-exchange-v3</id>
               <username>~~~Client~~~</username>
-              <password>${ANYPOINT_CLIENT_ID}~?~${ANYPOINT_CLIENT_SECRET}</password>
+              <password>${ANYPOINT_PLATFORM_USERNAME}~?~${ANYPOINT_PLATFORM_PASSWORD}</password>
             </server>
           </servers>
         </settings>
         EOF
       env:
-        ANYPOINT_CLIENT_ID: ${{ secrets.ANYPOINT_CLIENT_ID }}
-        ANYPOINT_CLIENT_SECRET: ${{ secrets.ANYPOINT_CLIENT_SECRET }}
+        ANYPOINT_CLIENT_ID: ${{ secrets.ANYPOINT_PLATFORM_USERNAME }}
+        ANYPOINT_CLIENT_SECRET: ${{ secrets.ANYPOINT_PLATFORM_PASSWORD }}
 
     - name: Deploy to Sandbox
       run: |
