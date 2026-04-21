@@ -25,8 +25,14 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
-    - name: Build Mule App
+    - name: Build Mule Application
       run: mvn clean package -DskipTests
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: mule-artifact
+        path: target/*.jar
 
 
   deploy:
@@ -49,13 +55,23 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
+    - name: Download artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: mule-artifact
+
+    - name: Prepare artifact
+      run: |
+        mkdir -p target
+        mv *.jar target/
+
     # ✅ STEP 1: Publish to Exchange
     - name: Publish to Exchange
       env:
         USERNAME: ${{ secrets.anypoint_platform_username }}
         PASSWORD: ${{ secrets.anypoint_platform_password }}
       run: |
-        mvn clean deploy -DskipTests \
+        mvn deploy -DskipTests \
         -Danypoint.username=$USERNAME \
         -Danypoint.password=$PASSWORD
 
@@ -65,7 +81,6 @@ jobs:
         USERNAME: ${{ secrets.anypoint_platform_username }}
         PASSWORD: ${{ secrets.anypoint_platform_password }}
       run: |
-        mvn clean deploy -DskipTests \
-        -DmuleDeploy \
+        mvn mule:deploy \
         -Danypoint.username=$USERNAME \
         -Danypoint.password=$PASSWORD
