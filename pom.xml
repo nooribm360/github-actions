@@ -15,10 +15,10 @@
 
     <!-- ================== PROPERTIES ================== -->
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mule.maven.plugin.version>4.6.1</mule.maven.plugin.version>
-        <mule.version>4.8.9</mule.version>
-    </properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<mule.maven.plugin.version>4.6.1</mule.maven.plugin.version>
+		<mule.version>4.10.0</mule.version> 
+	</properties>
 
     <!-- ================== DEPENDENCIES ================== -->
     <dependencies>
@@ -50,8 +50,12 @@
                 <artifactId>mule-maven-plugin</artifactId>
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
+				<configuration>
+					<classifier>mule-application</classifier>
+					<runtime>${mule.version}</runtime> 
+				
 
-                <configuration>
+                
 
                     <!-- CloudHub 2.0 Deployment -->
                     <cloudhub2Deployment>
