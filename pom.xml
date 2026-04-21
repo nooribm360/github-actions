@@ -34,38 +34,42 @@
 
 			<!-- Mule Maven Plugin -->
 			<plugin>
-	<groupId>org.mule.tools.maven</groupId>
-	<artifactId>mule-maven-plugin</artifactId>
-	<version>${mule.maven.plugin.version}</version>
-	<extensions>true</extensions>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>${mule.maven.plugin.version}</version>
+				<extensions>true</extensions>
 
-	<configuration>
-		<cloudhub2Deployment>
+				<configuration>
+					<cloudhub2Deployment>
 
 			<uri>https://anypoint.mulesoft.com</uri>
 			<provider>MC</provider>
 
+			<!-- Runtime -->
 			<muleVersion>${app.runtime}</muleVersion>
 
+			<!-- Auth -->
 			<username>${anypoint.username}</username>
 			<password>${anypoint.password}</password>
 
+			<!-- App -->
 			<applicationName>github-actions-app-002</applicationName>
 			<environment>Sandbox</environment>
 
-			<target>Cloudhub-US-East-2</target>
-
+			<!-- CH2 Specific -->
+			<target>Cloudhub-US-East-2</target>  
 			<replicas>1</replicas>
 			<vCores>0.1</vCores>
-
-			<!-- 🔥 CRITICAL FIX -->
 			<artifact>
 				${project.build.directory}/${project.build.finalName}-mule-application.jar
 			</artifact>
 
 		</cloudhub2Deployment>
-	</configuration>
-</plugin>
+				</configuration>
+
+			</plugin>
+
+		</plugins>
 	</build>
 
 	<dependencies>
