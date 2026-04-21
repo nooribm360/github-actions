@@ -31,6 +31,9 @@ jobs:
         java-version: '17'
         
     - name: Configure Maven settings.xml
+      env:
+        ANYPOINT_CLIENT_ID: ${{ secrets.ANYPOINT_CLIENT_ID }}
+        ANYPOINT_CLIENT_SECRET: ${{ secrets.ANYPOINT_CLIENT_SECRET }}
       run: |
         mkdir -p ~/.m2
         cat <<EOF > ~/.m2/settings.xml
@@ -39,8 +42,7 @@ jobs:
             <server>
               <id>anypoint-exchange-v3</id>
               <username>~~~Client~~~</username>
-              # Use simple, standardized secret names
-              <password>${{ secrets.ANYPOINT_CLIENT_ID }}~?~${{ secrets.ANYPOINT_CLIENT_SECRET }}</password>      
+              <password>${ANYPOINT_CLIENT_ID}~?~${ANYPOINT_CLIENT_SECRET}</password>
             </server>
           </servers>
         </settings>
@@ -51,4 +53,4 @@ jobs:
         # 1. Publish to Exchange
         mvn clean deploy mule:deploy -DskipTests --settings ~/.m2/settings.xml -Denvironment="Sandbox" -DtargetName="Cloudhub-US-East-2" -DappName="github-actions-app-004" -DmuleVersion="4.9.0" -Dreplicas="1" -DvCores="0.1"
         # 2. Deploy to CloudHub 2.0
-        mvn mule:deploy -DskipTests --settings ~/.m2/settings.xml
+        #mvn mule:deploy -DskipTests --settings ~/.m2/settings.xml

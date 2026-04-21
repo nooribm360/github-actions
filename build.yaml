@@ -31,6 +31,9 @@ jobs:
         java-version: '17'
         
     - name: Configure Maven settings.xml
+      env:
+        ANYPOINT_CLIENT_ID: ${{ secrets.ANYPOINT_CLIENT_ID }}
+        ANYPOINT_CLIENT_SECRET: ${{ secrets.ANYPOINT_CLIENT_SECRET }}
       run: |
         mkdir -p ~/.m2
         cat <<EOF > ~/.m2/settings.xml
@@ -39,8 +42,7 @@ jobs:
             <server>
               <id>anypoint-exchange-v3</id>
               <username>~~~Client~~~</username>
-              # Use simple, standardized secret names
-              <password>${{ secrets.ANYPOINT_CLIENT_ID }}~?~${{ secrets.ANYPOINT_CLIENT_SECRET }}</password>
+              <password>${ANYPOINT_CLIENT_ID}~?~${ANYPOINT_CLIENT_SECRET}</password>
             </server>
           </servers>
         </settings>
