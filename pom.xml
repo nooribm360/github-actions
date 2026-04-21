@@ -5,7 +5,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mycompany</groupId>
+	<groupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</groupId>
 	<artifactId>github-actions</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
@@ -43,10 +43,9 @@
     <cloudhub2Deployment>
         <uri>https://anypoint.mulesoft.com</uri>
         <provider>MC</provider>
-        <environment>Sandbox</environment>
-        <target>Cloudhub-US-East-2</target>
+        <environment>Sandbox</environment> <target>Cloudhub-US-East-2</target>
         <muleVersion>${app.runtime}</muleVersion>
-        <applicationName>github-actions-app-004</applicationName>
+        <applicationName>github-actions-app-005</applicationName>
         <businessGroupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</businessGroupId>
         <replicas>1</replicas>
         <vCores>0.1</vCores>
