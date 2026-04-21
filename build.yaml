@@ -58,6 +58,7 @@ jobs:
         USERNAME: ${{ secrets.anypoint_platform_username }}
         PASSWORD: ${{ secrets.anypoint_platform_password }}
       run: |
-        mvn mule:deploy \
+        mvn clean deploy -DskipTests \
         -Danypoint.username=$USERNAME \
-        -Danypoint.password=$PASSWORD
+        -Danypoint.password=$PASSWORD \
+        -DmuleDeploy
