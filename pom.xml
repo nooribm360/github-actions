@@ -53,7 +53,7 @@
 			<password>${anypoint.password}</password>
 
 			<!-- App -->
-			<applicationName>github-actions-app-003</applicationName>
+			<applicationName>github-actions-app-004</applicationName>
 			<environment>Sandbox</environment>
 
 			<!-- CH2 Specific -->
