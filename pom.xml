@@ -43,6 +43,7 @@
 					<cloudhub2Deployment>
 
 			<uri>https://anypoint.mulesoft.com</uri>
+			<provider>MC</provider>
 
 			<!-- Runtime -->
 			<muleVersion>${app.runtime}</muleVersion>
