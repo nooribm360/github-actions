@@ -40,32 +40,27 @@
 				<extensions>true</extensions>
 
 				<configuration>
-					<cloudHubDeployment>
-						<uri>https://anypoint.mulesoft.com</uri>
+					<cloudhub2Deployment>
 
-						<!-- ✅ Runtime -->
-						<muleVersion>${app.runtime}</muleVersion>
+			<uri>https://anypoint.mulesoft.com</uri>
 
-						<!-- ✅ Credentials (from GitHub Actions) -->
-						<username>${anypoint.username}</username>
-						<password>${anypoint.password}</password>
+			<!-- Runtime -->
+			<muleVersion>${app.runtime}</muleVersion>
 
-						<!-- ✅ MUST be unique -->
-						<applicationName>github-actions-app-001</applicationName>
+			<!-- Auth -->
+			<username>${anypoint.username}</username>
+			<password>${anypoint.password}</password>
 
-						<!-- ✅ Environment -->
-						<environment>Sandbox</environment>
+			<!-- App -->
+			<applicationName>github-actions-app-001</applicationName>
+			<environment>Sandbox</environment>
 
-						<!-- ✅ Region (EU) -->
-						<region>eu1</region>
+			<!-- CH2 Specific -->
+			<target>Cloudhub-US-East-1</target>  
+			<replicas>1</replicas>
+			<vCores>0.1</vCores>
 
-						<!-- Worker Config -->
-						<workers>1</workers>
-						<workerType>MICRO</workerType>
-
-						<!-- Optional -->
-						<objectStoreV2>true</objectStoreV2>
-					</cloudHubDeployment>
+		</cloudhub2Deployment>
 				</configuration>
 
 			</plugin>
