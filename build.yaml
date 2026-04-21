@@ -29,7 +29,12 @@ jobs:
 
     - name: Build Mule App
       run: mvn clean package -DskipTests
-
+      
+    - name: Deploy to CloudHub 2.0
+      run: |
+        mvn mule:deploy -DskipTests
+      
+    
 
   deploy:
     needs: build

@@ -40,30 +40,19 @@
 				<extensions>true</extensions>
 
 				<configuration>
-					<cloudhub2Deployment>
-
-			<uri>https://anypoint.mulesoft.com</uri>
-			<provider>MC</provider>
-
-			<!-- Runtime -->
-			<muleVersion>${app.runtime}</muleVersion>
-
-			<!-- Auth -->
-			<username>${anypoint.username}</username>
-			<password>${anypoint.password}</password>
-
-			<!-- App -->
-			<applicationName>github-actions-app-004</applicationName>
-			<environment>Sandbox</environment>
-
-			<!-- CH2 Specific -->
-			<target>Cloudhub-US-East-2</target>  
-			<replicas>1</replicas>
-			<vCores>0.1</vCores>
-			
-
-		</cloudhub2Deployment>
-				</configuration>
+    <cloudhub2Deployment>
+        <uri>https://anypoint.mulesoft.com</uri>
+        <provider>MC</provider>
+        <environment>Sandbox</environment>
+        <target>Cloudhub-US-East-2</target>
+        <muleVersion>${app.runtime}</muleVersion>
+        <applicationName>github-actions-app-004</applicationName>
+        <businessGroupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</businessGroupId>
+        <replicas>1</replicas>
+        <vCores>0.1</vCores>
+        <server>anypoint-exchange-v3</server>
+    </cloudhub2Deployment>
+</configuration>
 
 			</plugin>
 
