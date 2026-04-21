@@ -15,10 +15,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-		<!-- ✅ Use stable runtime -->
 		<app.runtime>4.9.0</app.runtime>
-
 		<mule.maven.plugin.version>4.6.1</mule.maven.plugin.version>
 	</properties>
 
@@ -31,6 +28,18 @@
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>3.2.0</version>
 			</plugin>
+			
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>exchange-mule-maven-plugin</artifactId>
+				<version>0.1.4</version>
+				<executions>
+					<execution>
+						<id>default-exchange-pre-deploy</id>
+						<phase>none</phase>
+						</execution>
+					</executions>
+			</plugin>
 
 			<!-- Mule Maven Plugin -->
 			<plugin>
@@ -38,21 +47,30 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
-
 				<configuration>
     <cloudhub2Deployment>
-        <uri>https://anypoint.mulesoft.com</uri>
-        <provider>MC</provider>
-        <environment>Sandbox</environment> <target>Cloudhub-US-East-2</target>
-        <muleVersion>${app.runtime}</muleVersion>
-        <applicationName>github-actions-app-005</applicationName>
-        <businessGroupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</businessGroupId>
-        <replicas>1</replicas>
-        <vCores>0.1</vCores>
-        <server>anypoint-exchange-v3</server>
-    </cloudhub2Deployment>
-</configuration>
-
+    <uri>https://anypoint.mulesoft.com</uri>
+    <provider>MC</provider>
+    <environment>${environment}</environment>
+    <target>${targetName}</target>
+    <muleVersion>${muleVersion}</muleVersion>
+    <server>anypoint-exchange-v3</server>
+    <applicationName>${appName}</applicationName>
+    
+    <businessGroupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</businessGroupId>
+    
+    <replicas>${replicas}</replicas>
+    <vCores>${vCores}</vCores>
+    <deploymentSettings>
+        <http>
+            <inbound>
+                <forwardSslSession>false</forwardSslSession>
+                <lastMileSecurity>false</lastMileSecurity>
+            </inbound>
+        </http>
+    </deploymentSettings>
+</cloudhub2Deployment>
+  </configuration>
 			</plugin>
 
 		</plugins>
@@ -65,7 +83,6 @@
 			<version>1.11.0</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
-
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-sockets-connector</artifactId>
@@ -73,14 +90,15 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
-	
+
 	<distributionManagement>
-    <repository>
-        <id>anypoint-exchange-v3</id>
-        <name>Anypoint Exchange</name>
-        <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/a83b9fd8-046a-403f-8d31-7b8fe2eb3839/maven</url>
-    </repository>
-</distributionManagement>
+		<repository>
+			<id>anypoint-exchange-v3</id>
+			<name>Anypoint Exchange</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/a83b9fd8-046a-403f-8d31-7b8fe2eb3839/maven</url>
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
 
 	<repositories>
 		<repository>
@@ -89,12 +107,14 @@
 			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
 			<layout>default</layout>
 		</repository>
-
 		<repository>
 			<id>mulesoft-releases</id>
 			<name>MuleSoft Releases Repository</name>
 			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
 
@@ -107,6 +127,14 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
+		</pluginRepository>
+
+		<!-- Required for exchange-mule-maven-plugin resolution -->
+		<pluginRepository>
+			<id>anypoint-exchange-v3</id>
+			<name>Anypoint Exchange</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+			<layout>default</layout>
 		</pluginRepository>
 	</pluginRepositories>
 

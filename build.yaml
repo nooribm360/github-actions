@@ -50,4 +50,4 @@ jobs:
         # 1. Publish to Exchange
         mvn clean deploy mule:deploy -DskipTests --settings ~/.m2/settings.xml -Denvironment="Sandbox" -DtargetName="Cloudhub-US-East-2" -DappName="github-actions-app-004" -DmuleVersion="4.9.0" -Dreplicas="1" -DvCores="0.1"
         # 2. Deploy to CloudHub 2.0
-        mvn mule:deploy -DskipTests --settings ~/.m2/settings.xml
+        #mvn mule:deploy -DskipTests --settings ~/.m2/settings.xml
