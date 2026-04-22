@@ -65,13 +65,13 @@
             <muleVersion>4.10.0</muleVersion>
             <environment>Sandbox</environment>
             <target>Cloudhub-US-East-2</target>
-            <applicationName>github-actions-app-004</applicationName>
+            <applicationName>github-actions-app-005</applicationName>
             <replicas>1</replicas>
             <vCores>0.1</vCores>
         </cloudhub2Deployment>
 
     </configuration>
-</plugin>
+</plugin>	
 
 		</plugins>
 	</build>
