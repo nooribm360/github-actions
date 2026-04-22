@@ -1,103 +1,112 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<?xml version="1.0" encoding="UTF-8"?>
+	<project xmlns="http://maven.apache.org/POM/4.0.0"
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+			 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-<modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-<groupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</groupId>
-<artifactId>github-actions</artifactId>
-<version>1.0.6-SNAPSHOT</version>
-<packaging>mule-application</packaging>
+	<groupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</groupId>
+	<artifactId>github-actions</artifactId>
+	<version>1.0.6-SNAPSHOT</version>
+	<packaging>mule-application</packaging>
 
-<name>github-actions</name>
+	<name>github-actions</name>
 
-<!-- PROPERTIES -->
-<properties>
-    <mule.version>4.10.0</mule.version>
-    <mule.maven.plugin.version>4.6.1</mule.maven.plugin.version>
-</properties>
+	<!-- PROPERTIES -->
+	<properties>
+		<mule.version>4.10.0</mule.version>
+		<mule.maven.plugin.version>4.6.1</mule.maven.plugin.version>
+	</properties>
 
-<!-- DEPENDENCIES -->
-<dependencies>
+	<!-- DEPENDENCIES -->
+	<dependencies>
 
-    <!-- Mule HTTP Connector -->
-    <dependency>
-        <groupId>org.mule.connectors</groupId>
-        <artifactId>mule-http-connector</artifactId>
-        <version>1.6.0</version>
-        <classifier>mule-plugin</classifier>
-    </dependency>
+		<!-- Mule HTTP Connector -->
+		<dependency>
+			<groupId>org.mule.connectors</groupId>
+			<artifactId>mule-http-connector</artifactId>
+			<version>1.6.0</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
 
-    <!-- FIX: Required for Java 17 (javax.activation missing in JDK) -->
-    <dependency>
-        <groupId>com.sun.activation</groupId>
-        <artifactId>javax.activation</artifactId>
-        <version>1.2.0</version>
-    </dependency>
+		<!-- FIX: Required for Java 17 (javax.activation missing in JDK) -->
+		<dependency>
+			<groupId>com.sun.activation</groupId>
+			<artifactId>javax.activation</artifactId>
+			<version>1.2.0</version>
+		</dependency>
 
-</dependencies>
+	</dependencies>
 
-<!-- BUILD -->
-<build>
-    <plugins>
+	<!-- BUILD -->
+	<build>
+		<plugins>
 
-        <plugin>
-            <groupId>org.mule.tools.maven</groupId>
-            <artifactId>mule-maven-plugin</artifactId>
-            <version>${mule.maven.plugin.version}</version>
-            <extensions>true</extensions>
+			<plugin>
+    <groupId>org.mule.tools.maven</groupId>
+    <artifactId>mule-maven-plugin</artifactId>
+    <version>${mule.maven.plugin.version}</version>
+    <extensions>true</extensions>
 
-            <configuration>
-                <cloudhub2Deployment>
-                    <uri>https://anypoint.mulesoft.com</uri>
-                    <provider>MC</provider>
-                    <muleVersion>4.10.0</muleVersion>
-                    <environment>Sandbox</environment>
-                    <target>Cloudhub-US-East-2</target>
-                    <applicationName>github-actions-app-004</applicationName>
-                    <replicas>1</replicas>
-                    <vCores>0.1</vCores>
-                </cloudhub2Deployment>
-            </configuration>
+    <configuration>
 
-        </plugin>
+        <!-- IMPORTANT FIX -->
+        <sharedLibraries>
+            <sharedLibrary>
+                <groupId>com.sun.activation</groupId>
+                <artifactId>javax.activation</artifactId>
+            </sharedLibrary>
+        </sharedLibraries>
 
-    </plugins>
-</build>
+        <cloudhub2Deployment>
+            <uri>https://anypoint.mulesoft.com</uri>
+            <provider>MC</provider>
+            <muleVersion>4.10.0</muleVersion>
+            <environment>Sandbox</environment>
+            <target>Cloudhub-US-East-2</target>
+            <applicationName>github-actions-app-004</applicationName>
+            <replicas>1</replicas>
+            <vCores>0.1</vCores>
+        </cloudhub2Deployment>
 
-<!-- EXCHANGE -->
-<distributionManagement>
-    <repository>
-        <id>anypoint-exchange-v3</id>
-        <url>
-            https://maven.anypoint.mulesoft.com/api/v3/organizations/a83b9fd8-046a-403f-8d31-7b8fe2eb3839/maven
-        </url>
-    </repository>
-</distributionManagement>
+    </configuration>
+</plugin>
 
-<!-- REPOSITORIES -->
-<repositories>
-    <repository>
-        <id>mulesoft-releases</id>
-        <url>https://repository.mulesoft.org/releases/</url>
-    </repository>
+		</plugins>
+	</build>
 
-    <repository>
-        <id>anypoint-exchange-v3</id>
-        <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
-    </repository>
-</repositories>
+	<!-- EXCHANGE -->
+	<distributionManagement>
+		<repository>
+			<id>anypoint-exchange-v3</id>
+			<url>
+				https://maven.anypoint.mulesoft.com/api/v3/organizations/a83b9fd8-046a-403f-8d31-7b8fe2eb3839/maven
+			</url>
+		</repository>
+	</distributionManagement>
 
-<!-- PLUGIN REPOSITORIES -->
-<pluginRepositories>
-    <pluginRepository>
-        <id>mulesoft-releases</id>
-        <url>https://repository.mulesoft.org/releases/</url>
-    </pluginRepository>
-</pluginRepositories>
+	<!-- REPOSITORIES -->
+	<repositories>
+		<repository>
+			<id>mulesoft-releases</id>
+			<url>https://repository.mulesoft.org/releases/</url>
+		</repository>
+
+		<repository>
+			<id>anypoint-exchange-v3</id>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+		</repository>
+	</repositories>
+
+	<!-- PLUGIN REPOSITORIES -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>mulesoft-releases</id>
+			<url>https://repository.mulesoft.org/releases/</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 
-</project>
+	</project>
 
