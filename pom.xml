@@ -43,7 +43,7 @@
                     <cloudhub2Deployment>
                         <uri>https://anypoint.mulesoft.com</uri>
                         <provider>MC</provider>
-                        <muleVersion>${mule.version}</muleVersion>
+                        <muleVersion>4.10.0</muleVersion>
                         <environment>Sandbox</environment>
                         <target>Cloudhub-US-East-2</target>
                         <applicationName>github-actions-app-004</applicationName>
