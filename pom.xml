@@ -8,39 +8,28 @@
 
     <groupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</groupId>
     <artifactId>github-actions</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.6-SNAPSHOT</version>
     <packaging>mule-application</packaging>
 
     <name>github-actions</name>
 
-    <!-- ================== PROPERTIES ================== -->
+    <!-- PROPERTIES -->
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mule.maven.plugin.version>4.6.1</mule.maven.plugin.version>
         <mule.version>4.10.0</mule.version>
+        <mule.maven.plugin.version>4.6.1</mule.maven.plugin.version>
     </properties>
 
-    <!-- ================== DEPENDENCIES ================== -->
+    <!-- DEPENDENCIES -->
     <dependencies>
-
-        <!-- HTTP Connector -->
         <dependency>
             <groupId>org.mule.connectors</groupId>
             <artifactId>mule-http-connector</artifactId>
             <version>1.6.0</version>
             <classifier>mule-plugin</classifier>
         </dependency>
-
-        <!-- 🔥 Java 17 FIX -->
-        <dependency>
-            <groupId>javax.activation</groupId>
-            <artifactId>activation</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-
     </dependencies>
 
-    <!-- ================== BUILD ================== -->
+    <!-- BUILD -->
     <build>
         <plugins>
 
@@ -51,52 +40,51 @@
                 <extensions>true</extensions>
 
                 <configuration>
-
-                    <!-- 🔥 CRITICAL FIX -->
-                    <sharedLibraries>
-                        <sharedLibrary>
-                            <groupId>javax.activation</groupId>
-                            <artifactId>activation</artifactId>
-                        </sharedLibrary>
-                    </sharedLibraries>
-
+                    <cloudhub2Deployment>
+                        <uri>https://anypoint.mulesoft.com</uri>
+                        <provider>MC</provider>
+                        <muleVersion>${mule.version}</muleVersion>
+                        <environment>Sandbox</environment>
+                        <target>Cloudhub-US-East-2</target>
+                        <applicationName>github-actions-app-004</applicationName>
+                        <replicas>1</replicas>
+                        <vCores>0.1</vCores>
+                    </cloudhub2Deployment>
                 </configuration>
+
             </plugin>
 
         </plugins>
     </build>
 
-    <!-- ================== DISTRIBUTION ================== -->
+    <!-- EXCHANGE -->
     <distributionManagement>
         <repository>
             <id>anypoint-exchange-v3</id>
-            <name>Anypoint Exchange</name>
             <url>
                 https://maven.anypoint.mulesoft.com/api/v3/organizations/a83b9fd8-046a-403f-8d31-7b8fe2eb3839/maven
             </url>
         </repository>
     </distributionManagement>
 
-    <!-- ================== REPOSITORIES ================== -->
+    <!-- REPOSITORIES -->
     <repositories>
-
         <repository>
-            <id>mulesoft-public</id>
-            <url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
+            <id>mulesoft-releases</id>
+            <url>https://repository.mulesoft.org/releases/</url>
         </repository>
 
         <repository>
             <id>anypoint-exchange-v3</id>
             <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
         </repository>
-
     </repositories>
 
-    <!-- ================== PLUGIN REPOSITORIES ================== -->
+    <!-- PLUGIN REPOSITORIES -->
     <pluginRepositories>
         <pluginRepository>
-            <id>mulesoft-public</id>
-            <url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
+            <id>mulesoft-releases</id>
+            <url>https://repository.mulesoft.org/releases/</url>
         </pluginRepository>
     </pluginRepositories>
 
