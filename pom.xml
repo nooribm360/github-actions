@@ -59,16 +59,19 @@
             </sharedLibrary>
         </sharedLibraries>
 
-        <cloudhub2Deployment>
-            <uri>https://anypoint.mulesoft.com</uri>
-            <provider>MC</provider>
-            <muleVersion>4.10.0</muleVersion>
-            <environment>Sandbox</environment>
-            <target>Cloudhub-US-East-2</target>
-            <applicationName>github-actions-app-005</applicationName>
-            <replicas>1</replicas>
-            <vCores>0.1</vCores>
-        </cloudhub2Deployment>
+        <cloudHubDeployment>
+    <uri>https://anypoint.mulesoft.com</uri>
+    <muleVersion>4.9.0</muleVersion>
+    <username>${anypoint.username}</username>
+    <password>${anypoint.password}</password>
+    <environment>Sandbox</environment>
+    <applicationName>github-actions-app-004</applicationName>
+    <workers>1</workers>
+    <workerType>MICRO</workerType>
+    <region>us-east-2</region>
+</cloudHubDeployment>
+		
+		
 
     </configuration>
 </plugin>	
