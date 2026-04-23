@@ -11,12 +11,12 @@
 	<version>1.0.6</version>
 	<packaging>mule-application</packaging>
 
-	<name>github-actions</name>
+	<name>github-action-sb</name>
 
 	<!-- PROPERTIES -->
 	<properties>
 		<mule.version>4.10.0</mule.version>
-		<mule.maven.plugin.version>4.6.1</mule.maven.plugin.version>
+		<mule.maven.plugin.version>4.6.29</mule.maven.plugin.version>
 	</properties>
 
 	<!-- DEPENDENCIES -->
@@ -57,7 +57,7 @@
             <target>Cloudhub-US-East-2</target>
             <server>Repository</server>
             <applicationName>${project.artifactId}</applicationName>
-            <releaseChannel>LTS</releaseChannel>
+            <releaseChannel>NONE</releaseChannel>
             <replicas>1</replicas>
             <vCores>0.1</vCores>
             <deploymentSettings>
