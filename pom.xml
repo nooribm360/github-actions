@@ -69,8 +69,7 @@
     <workers>1</workers>
     <workerType>MICRO</workerType>
     <region>us-east-1</region>
-	<replicas>1</replicas>
-    <vCores>0.1</vCores>
+	<vCores>0.1</vCores>
 </cloudHubDeployment>
 		
 		
