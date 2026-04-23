@@ -7,12 +7,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</groupId>
-	<artifactId>github-actions-SB1</artifactId>
-	<version>1.1.1</version>
+	<artifactId>github-actions-sb2</artifactId>
+	<version>1.1.2</version>
 	<packaging>mule-application</packaging>
 
 
-	<name>github-actions-SB1</name>
+	<name>github-actions-sb2</name>
 
 	<!-- PROPERTIES -->
 	<properties>
