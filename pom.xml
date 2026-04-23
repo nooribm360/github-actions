@@ -7,17 +7,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</groupId>
-	<artifactId>github-action-sb</artifactId>
-	<version>1.0.9</version>
+	<artifactId>github-actions-SB</artifactId>
+	<version>1.0.10</version>
 	<packaging>mule-application</packaging>
 
 
-	<name>github-action-sb</name>
+	<name>github-actions-SB</name>
 
 	<!-- PROPERTIES -->
 	<properties>
-		<mule.version>4.10.0</mule.version>
-		<mule.maven.plugin.version>4.6.29</mule.maven.plugin.version>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<mule.maven.plugin.version>4.1.1</mule.maven.plugin.version>
 	</properties>
 
 	<!-- DEPENDENCIES -->
@@ -58,7 +58,7 @@
             <target>Cloudhub-US-East-2</target>
             <server>Repository</server>
             <applicationName>${project.artifactId}</applicationName>
-            <releaseChannel>NONE</releaseChannel>
+            <releaseChannel>LTS</releaseChannel>
             <replicas>1</replicas>
             <vCores>0.1</vCores>
             <deploymentSettings>
