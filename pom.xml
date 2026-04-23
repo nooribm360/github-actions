@@ -8,7 +8,7 @@
 
 	<groupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</groupId>
 	<artifactId>github-actions</artifactId>
-	<version>1.0.6</version>
+	<version>1.0.7</version>
 	<packaging>mule-application</packaging>
 
 
