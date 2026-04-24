@@ -8,7 +8,7 @@
 
 	<groupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</groupId>
 	<artifactId>github-actions-sb10</artifactId>
-	<version>1.2.0</version>
+	<version>2.2.0</version>
 	<packaging>mule-application</packaging>
 
 
