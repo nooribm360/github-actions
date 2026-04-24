@@ -1,6 +1,7 @@
 {
-  "minMuleVersion": "4.10.0",
-  "secureProperties": [],
-  "redeploymentEnabled": true,
-  "name": "github-actions"
+    "redeploymentEnabled": true,
+    "name": "github-actions",
+    "minMuleVersion": "4.10.0",
+    "javaSpecificationVersions": ["17"],
+    "secureProperties": []
 }
