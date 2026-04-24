@@ -7,8 +7,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</groupId>
-	<artifactId>github-actions-sb12</artifactId>
-	<version>2.2.2</version>
+	<artifactId>github-actions-sb13</artifactId>
+	<version>2.2.3</version>
 	<packaging>mule-application</packaging>
 
 
@@ -20,7 +20,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<mule.maven.plugin.version>4.9.0</mule.maven.plugin.version>
 		<env>Sandbox</env>
-		<releaseChannel>LTE</releaseChannel> 
+		<releaseChannel>LTS</releaseChannel> 
 		<region>Cloudhub-US-East-2</region> 
 		<serverId>Repository</serverId> 
 	</properties>
@@ -48,8 +48,7 @@
             <target>Cloudhub-US-East-2</target>
             <server>Repository</server>
             <applicationName>${project.artifactId}</applicationName>
-			<muleVersion>4.9.12</muleVersion>
-            <releaseChannel>LTE</releaseChannel>
+		    <releaseChannel>LTS</releaseChannel>
             <replicas>1</replicas>
             <vCores>0.1</vCores>
             <deploymentSettings>
@@ -104,7 +103,7 @@
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-http-connector</artifactId>
-			<version>1.9.0</version>
+			<version>1.10.0</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
