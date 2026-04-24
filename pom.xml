@@ -7,8 +7,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>a83b9fd8-046a-403f-8d31-7b8fe2eb3839</groupId>
-	<artifactId>github-actions-sb6</artifactId>
-	<version>1.1.7</version>
+	<artifactId>github-actions-sb7</artifactId>
+	<version>1.1.8</version>
 	<packaging>mule-application</packaging>
 
 
@@ -20,7 +20,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<mule.maven.plugin.version>4.9.0</mule.maven.plugin.version>
 		<env>Sandbox</env>
-		<releaseChannel>NONE</releaseChannel> 
+		<releaseChannel>LTE</releaseChannel> 
 		<region>Cloudhub-US-East-2</region> 
 		<serverId>Repository</serverId> 
 	</properties>
